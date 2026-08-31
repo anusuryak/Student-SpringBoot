@@ -8,12 +8,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data                 // it helps to generate automatic getter and setter
-@AllArgsConstructor     //helps to generate constructor with parameters
-@NoArgsConstructor      //generates a no argument constructor(no parameters)
-@Entity                   //table creation
+@Data                 
+@AllArgsConstructor
+@NoArgsConstructor      
+@Entity                   
 public class StudentEntity {
-	@GeneratedValue(strategy =GenerationType.IDENTITY)    // auto generate id 
+	@GeneratedValue(strategy =GenerationType.IDENTITY)    
 	@Id   //primary key
 	
 	private Long id;
