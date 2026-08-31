@@ -16,25 +16,25 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Student.entity.StudentEntity;
 import com.Student.serviceInterface.ServiceInterface;
 
-@RestController    //request and response from the client 
+@RestController     
 @RequestMapping("/student")     
 public class StudentController {
 
-	@Autowired                                  //dependency injection
+	@Autowired                                  
 	public ServiceInterface service;
 	
-	@PostMapping("/addStudent")                   //post mapping is used to send data and create resources
-	public StudentEntity addStudents(@RequestBody StudentEntity entity) {       //requestbody-->request data into a Java object
+	@PostMapping("/addStudent")                   
+	public StudentEntity addStudents(@RequestBody StudentEntity entity) {       
 		return service.addAllStudent(entity);
 	}
 	
-	@GetMapping("/getStudent")           //get mapping is used for retreive data from server
+	@GetMapping("/getStudent")           
 	public List<StudentEntity> getAllStudents() {
 		return service.getAllStudent();
 	}
 	
 	@GetMapping("/{id}")
-	public StudentEntity getStudentSById(@PathVariable Long id) {     // used to extract values from urls
+	public StudentEntity getStudentSById(@PathVariable Long id) {     
 		return service.getStudentById(id);
 	}
 	
@@ -46,12 +46,12 @@ public class StudentController {
 	
 	@GetMapping("/search")
 	public List<StudentEntity> searchStudentByDepartment(@RequestParam String department) {
-		return service.searchStudentByDept(department);           // to run in postman    "http://localhost:8080/student/search?department=it"
+		return service.searchStudentByDept(department);           
 	}
 	
 	@GetMapping("/aboveMarks")
-	public List<StudentEntity> getStudentAboveMarks(@RequestParam Double mark) {     //@RequestParam is used to get query parameters from URL
-		return service.getAboveMinMarks(mark);                      //to run in postman "http://localhost:8080/student/aboveMarks?mark=80"
+	public List<StudentEntity> getStudentAboveMarks(@RequestParam Double mark) {     
+		return service.getAboveMinMarks(mark);                      
 	}
 	
 }
