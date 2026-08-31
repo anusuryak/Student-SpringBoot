@@ -8,31 +8,31 @@ import org.springframework.stereotype.Service;
 import com.Student.entity.StudentEntity;
 import com.Student.repo.StudentRepo;
 import com.Student.serviceInterface.ServiceInterface;
-@Service     // business logic and act as connection bridge btw controller and repository
+@Service     
 public class ServiceImplement implements ServiceInterface{
-        @Autowired            //inject dependencies automatically
+        @Autowired
 		public StudentRepo repo;
         
-		@Override    //method implementation
+		@Override
 		public StudentEntity addAllStudent(StudentEntity entity) {
 			//System.out.println(entity);
-			return repo.save(entity);      //create a new record or update an existing one   //crud operation
+			return repo.save(entity);    
 			
 		}
 
 		@Override
 		public List<StudentEntity> getAllStudent() {
-			return repo.findAll();       //retrieves all records
+			return repo.findAll();
 		}
 
 		@Override
 		public StudentEntity getStudentById(Long id) {
-			return repo.findById(id).orElse(null);     //retreives a student by id
+			return repo.findById(id).orElse(null);     
 		}
 
 		@Override
 		public void deleteStudentById(Long id) {
-		   repo.deleteById(id);     //delete the student with specified id
+		   repo.deleteById(id);     
 		}
 
 		@Override
